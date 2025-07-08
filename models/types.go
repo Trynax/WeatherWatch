@@ -5,11 +5,7 @@ package models
 type WeatherResponse struct{
 	Location Location `json:"location"`
 	Current  Current  `json:"current"`
-	WindKph float64 `json:"wind_kph"`
-	WindDeg int    `json:"wind_deg"`
-	WindDir string `json:"wind_dir"`
-	Humidity int    `json:"humidity"`
-	Cloud int    `json:"cloud"`
+	
 }
 
 
@@ -26,6 +22,12 @@ type Current struct {
 	TempC float64 `json:"temp_c"`
 	IsDay int     `json:"is_day"`
 	Condition Condition `json:"condition"`
+	WindKph float64 `json:"wind_kph"`
+	WindDeg int    `json:"wind_deg"`
+	WindDir string `json:"wind_dir"`
+	Humidity int    `json:"humidity"`
+	Cloud int    `json:"cloud"`
+	FeelsLikeC float32 `json:"feelslike_c"`
 }
 
 type Condition struct {
