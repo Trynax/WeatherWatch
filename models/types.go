@@ -22,7 +22,7 @@ type Location struct {
 }
 
 type Current struct {
-	lastUpdated string `json:"last_updated"`
+	LastUpdated string `json:"last_updated"`
 	TempC float64 `json:"temp_c"`
 	IsDay int     `json:"is_day"`
 	Condition Condition `json:"condition"`
@@ -32,4 +32,14 @@ type Condition struct {
 	Text string `json:"text"`
 	Code int    `json:"code"`
 	Icon string `json:"icon"`
+}
+
+
+type WeatherRequest struct {
+	City string `json:"city"`
+}
+
+type WeatherError struct {
+	Message string `json:"message"`
+	Status int    `json:"status"`
 }
