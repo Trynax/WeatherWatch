@@ -45,3 +45,11 @@ type WeatherError struct {
 	Message string `json:"message"`
 	Status int    `json:"status"`
 }
+
+
+type Threshold struct {
+	Temp float64
+	WindSpeed float64
+	Humidity int
+	Cloud int
+}

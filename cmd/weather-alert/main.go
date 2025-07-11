@@ -1,26 +1,22 @@
-package main 
-
+package main
 
 import (
-	"fmt"
-	"github.com/trynax/WeatherWatch/api"
-	"github.com/trynax/WeatherWatch/utils"
-)
+    "fmt"
+    
 
+    "github.com/trynax/WeatherWatch/scheduler"
+
+
+)
 
 
 func main(){
 
 
-	fmt.Println("Weather Alert Service is running...")
-
-	result, err := api.GetCurrentWeatherWithCityName("Lagos")
-
-	if err !=nil{
-		fmt.Println("Error: ", err)
-	}
 
 
+    fmt.Println("Weather Alert Service is running...")
+    fmt.Println("Press Ctrl + C to stop")
 
-	fmt.Println(utils.WeatherCurrentResponse(result))
+	scheduler.CheckWeatherOnSchedule(1, "Lagos")
 }
