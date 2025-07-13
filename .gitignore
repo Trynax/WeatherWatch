@@ -24,13 +24,44 @@ profile.cov
 go.work
 go.work.sum
 
-# env file
+# Environment files
 .env
+.env.local
+.env.*.local
 
-# Editor/IDE
-# .idea/
-# .vscode/
+# Editor/IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
 
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
+# Project specific generated files
 project.txt
-weatherReport.txt 
+weatherReport.txt
+*.log
+*.txt
+
+# Build output
+weather-alert
+weather-alert.exe
+/bin/
+/build/
+
+# Temporary files
+*.tmp
+*.temp
+*.backup
+*.bak
+
+# Test files (if you create any)
+/cmd/test-email/
