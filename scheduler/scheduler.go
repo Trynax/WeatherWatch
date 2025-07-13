@@ -33,15 +33,16 @@ func CheckWeatherOnSchedule(timeInMins int, city string) {
 				alerts := alert.CheckAllConditions(result)
 
 				if firstTime {
-			
+
 					summary := utils.FormatSummary(result)
 					fmt.Println("\n" + summary)
 					notify.CreateAndAddContents(summary)
 					firstTime = false
+					notify.EmailSummary(summary)
 				} else {
-	
+
 					if len(alerts) > 0 {
-			
+
 						alertMsg := utils.FormatAlertMessage(
 							result.Location.Name+", "+result.Location.Country,
 							result.Current.LastUpdated,
@@ -49,14 +50,17 @@ func CheckWeatherOnSchedule(timeInMins int, city string) {
 						)
 						notify.PrintAlert(alertMsg)
 						notify.CreateAndAddContents(alertMsg)
+						notify.SendEmailAlert(alertMsg)
 					} else {
 						// No alerts - show brief OK status
 						okMsg := utils.FormatNoAlertMessage(*result)
 						notify.PrintStatus(okMsg)
+						notify.SendEmailStatus(okMsg)
 
 						// Log entry for file
 						logEntry := utils.FormatLogEntry(*result, alerts)
 						notify.CreateAndAddContents(logEntry)
+
 					}
 				}
 			}
